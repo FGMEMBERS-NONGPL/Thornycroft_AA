@@ -1,0 +1,691 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+	<path>ThornyAA.ac</path>
+
+	<offsets>
+		<x-m>0.0</x-m>
+		<y-m>0.0</y-m>
+		<z-m>0.0</z-m>
+		<heading-deg>0.0</heading-deg>
+	</offsets>
+
+<!-- AA gun smoke/flame -->
+  <model>
+    <path>Aircraft/Thornycroft_AA/Models/Effects/guns/fire.xml</path>
+    <offsets>
+      <x-m> -0.10 </x-m>
+      <y-m> 0.00  </y-m>
+      <z-m> 3.163 </z-m>
+      <roll-deg>    0.0 </roll-deg>
+      <pitch-deg>   0.0 </pitch-deg>
+      <heading-deg> 0.0 </heading-deg>
+    </offsets>
+  </model>
+	
+
+<!-- speedometer -->
+  <model>
+    <path>Aircraft/Thornycroft_AA/Models/Instruments/Speedometer/speedometer.xml</path>
+    <offsets>
+      <x-m> -2.349 </x-m>
+      <y-m> 0.302 </y-m>
+      <z-m> 2.063 </z-m>
+      <roll-deg>    0.0 </roll-deg>
+      <pitch-deg>   -19.0 </pitch-deg>
+      <heading-deg> 0.0 </heading-deg>
+    </offsets>
+  </model>
+
+
+<!-- gas gauge -->
+  <model>
+    <path>Aircraft/Thornycroft_AA/Models/Instruments/Fuel/fuelgauge.xml</path>
+    <offsets>
+      <x-m> -2.349 </x-m>
+      <y-m> 0.104 </y-m>
+      <z-m> 2.063 </z-m>
+      <roll-deg>    0.0 </roll-deg>
+      <pitch-deg>   -19.0 </pitch-deg>
+      <heading-deg> 0.0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- controls, wheel and suspension animations -->
+
+<!-- gear selector anim. -->
+
+ <animation>
+  <object-name>gearlever</object-name>
+  <type>rotate</type>
+  <property>controls/gearstick-y</property>
+  <factor>-1</factor>
+  <center>
+   <x-m>-2.096</x-m>
+   <y-m> 0.7602</y-m>
+   <z-m>1.305</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <object-name>gearlever</object-name>
+  <type>rotate</type>
+  <property>controls/gearstick-x</property>
+  <factor>-1</factor>
+  <center>
+   <x-m>-2.096</x-m>
+   <y-m> 0.7602</y-m>
+   <z-m>1.305</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+	
+
+ <!-- handbrake -->
+ <animation>
+  <object-name>parkingbrake</object-name>
+  <type>rotate</type>
+  <property>controls/gear/brake-parking</property>
+  <factor>20</factor>
+  <center>
+   <x-m>-2.0935</x-m>
+   <y-m> 0.7064</y-m>
+   <z-m>1.313</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- steering -->
+  <animation>
+    <type>rotate</type>
+    <object-name>steeringwheel</object-name>
+    <property>controls/flight/aileron</property>
+    <factor>-450</factor>
+  <axis>
+   <x1-m>-2.40285</x1-m>
+   <y1-m>0.3637</y1-m>
+   <z1-m>1.67013</z1-m>
+   <x2-m>-2.0052</x2-m>
+   <y2-m>0.3641</y2-m>
+   <z2-m>2.14737 </z2-m>
+  </axis>
+  </animation>
+
+<!-- Front Axle -->
+ <animation>
+  <type>translate</type>
+  <object-name>L-frontwheel</object-name>
+  <object-name>R-frontwheel</object-name>
+  <object-name>frontaxle</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+    <condition>
+        <greater-than-equals>
+          <property>gear/gear[1]/compression-norm</property>
+          <property>gear/gear[0]/compression-norm</property>
+        </greater-than-equals>
+    </condition>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>-0.025</dep>
+   </entry>
+   <entry>
+    <ind>1.00</ind>
+    <dep>0.155</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>L-frontwheel</object-name>
+  <object-name>R-frontwheel</object-name>
+  <object-name>frontaxle</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+    <condition>
+        <greater-than>
+          <property>gear/gear[0]/compression-norm</property>
+          <property>gear/gear[1]/compression-norm</property>
+        </greater-than>
+    </condition>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>-0.025</dep>
+   </entry>
+   <entry>
+    <ind>1.00</ind>
+    <dep>0.155</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>L-frontwheel</object-name>
+  <object-name>R-frontwheel</object-name>
+  <object-name>frontaxle</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <factor>5.5</factor>
+  <center>
+   <x-m>-3.6082</x-m>
+   <y-m>0.45</y-m>
+   <z-m>0.489</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>FL-fronthalfspring</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <factor>14.5</factor>
+  <center>
+   <x-m>-4.2208</x-m>
+   <y-m>-0.46</y-m>
+   <z-m>0.7089</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FL-rearhalfspring</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <factor>14.5</factor>
+  <center>
+   <x-m>-2.9382</x-m>
+   <y-m>-0.46</y-m>
+   <z-m>0.754</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>L-frontwheel</object-name>
+  <object-name>R-frontwheel</object-name>
+  <object-name>frontaxle</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <factor>5.5</factor>
+  <center>
+   <x-m>-3.6082</x-m>
+   <y-m>-0.45</y-m>
+   <z-m>0.489</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>FR-fronthalfspring</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <factor>14.5</factor>
+  <center>
+   <x-m>-4.2208</x-m>
+   <y-m> 0.46</y-m>
+   <z-m>0.7089</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FR-rearhalfspring</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <factor>14.5</factor>
+  <center>
+   <x-m>-2.9382</x-m>
+   <y-m> 0.46</y-m>
+   <z-m>0.754</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>L-frontwheel</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-25</factor>
+  <center>
+   <x-m>-3.594</x-m>
+   <y-m>-1.03619</y-m>
+   <z-m>0.536</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>R-frontwheel</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-25</factor>
+  <center>
+   <x-m>-3.594</x-m>
+   <y-m>1.03619</y-m>
+   <z-m>0.536</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>L-frontwheel</object-name>
+  <property>gear/gear[0]/rollspeed-ms</property>
+  <factor>-17</factor>
+  <center>
+   <x-m>-3.59427</x-m>
+   <y-m>-1.03619</y-m>
+   <z-m>0.53604</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>R-frontwheel</object-name>
+  <property>gear/gear[1]/rollspeed-ms</property>
+  <factor>-17</factor>
+  <center>
+   <x-m>-3.59427</x-m>
+   <y-m> 1.03619</y-m>
+   <z-m>0.53604</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- Rear Axle  -->
+ <animation>
+  <type>translate</type>
+  <object-name>L-rearwheel</object-name>
+  <object-name>R-rearwheel</object-name>
+  <object-name>differential</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+    <condition>
+        <greater-than-equals>
+          <property>gear/gear[3]/compression-norm</property>
+          <property>gear/gear[2]/compression-norm</property>
+        </greater-than-equals>
+    </condition>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>-0.021</dep>
+   </entry>
+   <entry>
+    <ind>1.00</ind>
+    <dep>0.16</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>L-rearwheel</object-name>
+  <object-name>R-rearwheel</object-name>
+  <object-name>differential</object-name>
+  <property>gear/gear[3]/compression-norm</property>
+    <condition>
+        <greater-than>
+          <property>gear/gear[2]/compression-norm</property>
+          <property>gear/gear[3]/compression-norm</property>
+        </greater-than>
+    </condition>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>-0.021</dep>
+   </entry>
+   <entry>
+    <ind>1.00</ind>
+    <dep>0.16</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>L-rearwheel</object-name>
+  <object-name>R-rearwheel</object-name>
+  <object-name>differential</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <factor>5.5</factor>
+  <center>
+   <x-m>1.3328</x-m>
+   <y-m>0.5434</y-m>
+   <z-m>0.6814</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>LR-fronthalfspring</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <factor>13.5</factor>
+  <center>
+   <x-m>0.5547</x-m>
+   <y-m>-0.5434</y-m>
+   <z-m>0.87004</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LR-rearhalfspring</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <factor>13.5</factor>
+  <center>
+   <x-m>1.17003</x-m>
+   <y-m>-0.5434</y-m>
+   <z-m>0.8841</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>L-rearwheel</object-name>
+  <object-name>R-rearwheel</object-name>
+  <object-name>differential</object-name>
+  <property>gear/gear[3]/compression-norm</property>
+  <factor>5.5</factor>
+  <center>
+   <x-m>1.3328</x-m>
+   <y-m>-0.5434</y-m>
+   <z-m>0.6814</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+   <animation>
+  <type>rotate</type>
+  <object-name>RR-fronthalfspring</object-name>
+  <property>gear/gear[3]/compression-norm</property>
+  <factor>13.5</factor>
+  <center>
+   <x-m>0.5547</x-m>
+   <y-m> 0.5434</y-m>
+   <z-m>0.87004</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RR-rearhalfspring</object-name>
+  <property>gear/gear[3]/compression-norm</property>
+  <factor>13.5</factor>
+  <center>
+   <x-m>1.17003</x-m>
+   <y-m> 0.5434</y-m>
+   <z-m>0.8841</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>L-rearwheel</object-name>
+  <property>gear/gear[2]/rollspeed-ms</property>
+  <factor>-15</factor>
+  <center>
+   <x-m>1.33956</x-m>
+   <y-m>-1.0483</y-m>
+   <z-m>0.6291</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>R-rearwheel</object-name>
+  <property>gear/gear[3]/rollspeed-ms</property>
+  <factor>-15</factor>
+  <center>
+    <x-m>1.33956</x-m>
+   <y-m> 1.0483</y-m>
+   <z-m>0.6291</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>screen</object-name>
+  <object-name>screenglass</object-name>
+  <object-name>wiper.L</object-name>
+  <object-name>wiper.R</object-name>
+  <property>controls/gear/screen</property>
+  <factor>-108</factor>
+  <center>
+   <x-m>1.167</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.992</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <!-- <model> 
+  <path>Aircraft/jeep/Models/Pilot/pilot.xml</path>
+   <name>pilot</name>
+    <nopreview/>
+    <offsets> 
+     <x-m>-1.8</x-m>
+     <y-m>0.27</y-m>
+     <z-m>0.9</z-m>
+    <pitch-deg>14</pitch-deg>
+   </offsets>
+  </model> -->
+
+ <!-- <animation>
+  <type>select</type>
+  <object-name>pilot</object-name>
+  <condition>
+   <greater-than>
+    <property>sim/current-view/view-number</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation> -->
+
+ <animation>
+  <type>select</type>
+  <object-name>roof1</object-name>
+  <object-name>roof2</object-name>
+  <condition>
+   <equals>
+    <property>controls/gear/roof</property>
+    <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+	<model> 
+      <path>Aircraft/Thornycroft_AA/Models/roof.ac</path>
+			<name>softroof</name>
+		<nopreview/>
+      <offsets> 
+        <x-m>-1.193</x-m>
+        <y-m>0.0</y-m>
+        <z-m>2.394</z-m>
+      </offsets>
+    </model>
+ <animation>
+  <type>select</type>
+  <object-name>softroof</object-name>
+  <condition>
+   <equals>
+    <property>controls/gear/roof</property>
+    <value>1</value>
+   </equals>
+  </condition>
+ </animation>
+
+   <!-- observer/gun animation -->
+  <animation>
+    <name>gunturret</name>
+    <object-name>aagun</object-name>
+    <object-name>aa-gunbase</object-name>
+    <object-name>rangesightbrace</object-name>
+    <object-name>sight-tube</object-name>
+     <object-name>crosshairs</object-name>
+     <object-name>point</object-name> 
+  </animation>
+  <animation>
+    <name>gun</name>
+    <object-name>aagun</object-name>
+    <object-name>rangesightbrace</object-name>
+    <object-name>sight-tube</object-name>
+    <object-name>crosshairs</object-name>
+    <object-name>point</object-name> 
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>gunturret</object-name>
+    <property>sim/model/turret[0]/heading</property>
+    <offset-deg>0</offset-deg>
+    <center>
+      <x-m> 1.3147 </x-m>
+      <y-m> -0.00174 </y-m>
+      <z-m>  1.870 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+    <animation>
+    <type>rotate</type>
+    <object-name>gun</object-name>
+    <property>sim/model/turret[0]/pitch</property>
+    <factor>1</factor>
+    <offset-deg>0</offset-deg>
+    <center>
+      <x-m> 0.9878 </x-m>
+      <y-m>  -0.00174 </y-m>
+      <z-m>  2.8492 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+
+
+</PropertyList>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <default>
+    <menu n="10">
+      <label>Thornycroft_AA-truck</label>
+	<enabled type="bool">true</enabled>
+ 
+	 <item>
+	   <label>tilt Windscreen forward</label>
+	    <binding>
+          <command>property-toggle</command>
+          <property>/controls/gear/screen</property>
+	    </binding>
+	  </item>
+				
+        <item>
+	   <label>put Softroof on</label>
+	   <binding>
+          <command>property-toggle</command>
+          <property>/controls/gear/roof</property>
+	   </binding>
+	  </item>
+					
+        <item>
+	   <label>Select Livery</label>
+          <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+          </binding>
+	   </item>
+          	
+         <item>
+	    <label>Show engine parameters</label>
+           <binding>
+	     <command>nasal</command>
+	     <script> var eng=gui.Dialog.new("/sim/gui/dialogs/Thornycroft_AA/menu/dialog", "Aircraft/Thornycroft_AA/Nasal/eng_param.xml");
+			   eng.open();
+	     </script>
+	     </binding>
+	    </item>
+			
+          <item>
+		<label>Hide engine parameters</label>
+            <binding>
+		<command>nasal</command>
+		<script>  var eng=gui.Dialog.new("/sim/gui/dialogs/Thornycroft_AA/menu/dialog", "Aircraft/Thornycroft_AA/Nasal/eng_param.xml");
+			    eng.close();
+	      </script>
+		</binding>
+	    </item>
+			
+          <item>
+		<label>Reload guns</label>
+		<binding>
+		<command>nasal</command>
+		<script>guns.reload_guns();</script>
+		</binding>
+	    </item>
+			
+          <item>
+		<label>Unlimited guns</label>
+		<binding>
+		<command>nasal</command>
+		<script>guns.unlimited_guns();</script>
+	      </binding>
+	     </item>
+  	</menu>
+  </default>
+
+</PropertyList>
+

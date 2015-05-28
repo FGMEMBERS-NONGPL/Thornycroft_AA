@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <particlesystem>
+    <name>fire</name>
+    <type>normal</type>
+    <texture>smoke.png</texture>
+
+    <condition>
+      <property>controls/armament/trigger</property>
+      <!-- <property>sim/multiplay/generic/int[10]</property> -->
+    </condition>
+
+    <emissive>true</emissive>
+    <lighting>true</lighting>
+
+    <attach>local</attach>
+
+   <animation>
+    <type>rotate</type>
+    <name>fire</name>
+    <property>sim/model/turret[0]/heading</property>
+    <offset-deg>0</offset-deg>
+    <center>
+      <x-m> 1.32 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  -1.09 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object>fire</object>
+    <property>sim/model/turret[0]/pitch</property>
+    <factor>1</factor>
+    <offset-deg>0</offset-deg>
+    <center>
+      <x-m> 1.058 </x-m>
+      <y-m>  0.00 </y-m>
+      <z-m>  -0.341 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+    <placer>
+      <type>point</type> 
+    </placer>
+
+    <shooter>
+      <theta-min-deg> 84.0 </theta-min-deg>
+      <theta-max-deg> 86.0 </theta-max-deg>
+      <phi-min-deg>   -5.5 </phi-min-deg>
+      <phi-max-deg>    5.5 </phi-max-deg>
+      <speed-mps>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+        <factor>-0.257</factor>
+        <spread>15</spread>
+      </speed-mps>
+      <rotation-speed>
+        <x-min-deg-sec>  5 </x-min-deg-sec>
+        <y-min-deg-sec>  5 </y-min-deg-sec>
+        <z-min-deg-sec>  5 </z-min-deg-sec>
+        <x-max-deg-sec> 25 </x-max-deg-sec>
+        <y-max-deg-sec> 25 </y-max-deg-sec>
+        <z-max-deg-sec> 25 </z-max-deg-sec>
+      </rotation-speed>
+    </shooter>
+
+    <counter>
+      <particles-per-sec>
+        <value>  4 </value>
+        <spread>   0 </spread>
+      </particles-per-sec>
+    </counter>
+
+    <align>billboard</align>
+
+    <particle>
+      <start>
+        <color>
+          <red><value>   0.9 </value></red>
+          <green><value> 0.75 </value></green>
+          <blue><value>  0.6 </value></blue>
+          <alpha><value> 0.23 </value></alpha>
+        </color>
+        <size>
+          <value> 0.2 </value>
+        </size>
+      </start>
+
+      <end>
+        <color>
+          <red><value>   0.28 </value></red>
+          <green><value> 0.28 </value></green>
+          <blue><value>  0.28 </value></blue>
+          <alpha><value> 0.80 </value></alpha>
+        </color>
+        <size>
+          <value> 1.15 </value>
+        </size>
+      </end>
+
+      <life-sec>
+        <value> 0.89 </value>
+      </life-sec>
+
+      <mass-kg>  0.025 </mass-kg>
+      <radius-m> 0.10 </radius-m>
+    </particle>
+
+    <program>
+      <fluid>     air </fluid>
+      <gravity> false </gravity>
+      <wind>    false </wind>
+    </program>
+
+  </particlesystem>
+
+</PropertyList>
+

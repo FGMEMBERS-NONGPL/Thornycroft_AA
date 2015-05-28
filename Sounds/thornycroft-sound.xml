@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+ 
+<PropertyList>
+
+ <fx>
+ 
+  <crank>
+   <name>crank</name>
+   <mode>looped</mode>
+   <path>Aircraft/Thornycroft_AA/Sounds/dr400-starter.wav</path>
+   <condition>
+    <property>/engines/engine/cranking</property>
+    <not>
+     <property>/engines/engine/running</property>
+    </not>
+   </condition>
+   <volume>
+    <offset>0.9</offset>
+   </volume>
+  </crank>
+
+<!-- <property>/engines/engine/running</property> -->
+
+   <engine>
+      <name>engine</name>
+      <path>Aircraft/Thornycroft_AA/Sounds/vw1200rpm.wav</path>
+      <mode>looped</mode>
+      <condition>
+       <greater-than>
+         <property>/engines/engine/rpm</property>
+            <value>200</value>
+           </greater-than>
+          </condition>
+      <volume>
+        <property>/engines/engine/throttle</property>
+        <factor>0.9</factor>
+        <min>25.0</min>
+        <max>221.0</max>
+        <offset>3.0</offset>
+      </volume>
+      <pitch>
+    <property>/engines/engine/rpm</property>
+    <factor>0.0004</factor>
+    <min>0.1</min>
+    <max>0.84</max>
+    <offset>0.15</offset>
+   </pitch>
+      <reference-dist>180</reference-dist>
+      <max-dist>500</max-dist>
+    </engine>
+
+   <engine>
+      <name>engine</name>
+      <path>Aircraft/Thornycroft_AA/Sounds/engine-whine.wav</path>
+      <mode>looped</mode>
+      <condition>
+       <greater-than>
+         <property>/engines/engine/rpm</property>
+            <value>200</value>
+           </greater-than>
+          </condition>
+       <volume>
+        <property>/engines/engine/rev_throttle</property>
+        <factor>0.9</factor>
+        <min>22.3</min>
+        <max>181.0</max>
+        <offset>0.001</offset>
+      </volume>
+      <pitch>
+       <property>/engines/engine/rpm</property>
+       <factor>0.0004</factor>
+       <min>0.14</min>
+       <max>0.9</max>
+       <offset>0.015</offset>
+      </pitch>
+      <reference-dist>180</reference-dist>
+      <max-dist>200</max-dist>
+    </engine>
+
+  <gear>
+   <name>gearclutch</name>
+   <mode>once</mode>
+   <path>Aircraft/Thornycroft_AA/Sounds/clunk.wav</path>
+   <condition>
+     <property>/engines/engine/clutch</property>
+     <value>1</value>
+   </condition>
+   <volume>
+    <offset>0.9</offset>
+   </volume>
+  </gear>
+
+  <rumble>
+   <name>rumble</name>
+   <mode>looped</mode>
+   <path>Sounds/rumble.wav</path>
+   <condition>
+    <or>
+     <property>/gear/gear[0]/wow</property>
+     <property>/gear/gear[1]/wow</property>
+     <property>/gear/gear[2]/wow</property>
+     <property>/gear/gear[3]/wow</property>
+    </or>
+    <!-- <property>/sim/current-view/internal</property> -->
+   </condition>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <type>log</type>
+    <factor>0.25</factor>
+   </volume>
+  </rumble>
+
+  <squeal>
+   <name>squeal</name>
+   <path>Sounds/squeal.wav</path>
+   <condition>
+    <or>
+     <property>/gear/gear[0]/wow</property>
+     <property>/gear/gear[1]/wow</property>
+     <property>/gear/gear[2]/wow</property>
+     <property>/gear/gear[3]/wow</property>
+    </or>
+   </condition>
+   <volume>
+    <property>/velocities/speed-down-fps</property>
+    <factor>0.5</factor>
+    <max>1.0</max>
+   </volume>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+    <max>1.0</max>
+   </volume>
+   <volume>
+    <internal>dt_stop</internal>
+    <factor>0.05</factor>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0025</factor>
+    <offset>1.2</offset>
+   </pitch>
+  </squeal>
+ 
+  <wind>
+   <name>wind</name>
+   <mode>looped</mode>
+   <path>Sounds/wind.wav</path>
+   <property>/velocities/airspeed-kt</property>
+   <volume>
+     <property>/velocities/airspeed-kt</property>
+     <factor>0.0015</factor>
+     <min>0.03</min>
+     <max>0.25</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0035</factor>
+    <offset>1.25</offset>
+   </pitch>
+  </wind>
+
+   <horn>
+   <name>horn</name>
+   <mode>looped</mode>
+   <path>Aircraft/Thornycroft_AA/Sounds/horn.wav</path>
+   <property>/controls/horn/horn</property>
+   <volume>
+    <property>/orientation/alpha-deg</property>
+    <type>log</type>
+    <min>1.0</min>
+    <max>1.5</max>
+   </volume>
+    <position>
+     <x>1.17</x>
+     <y>0.0</y>
+     <z>0.13</z>
+    </position>
+    <reference-dist>100.0</reference-dist>
+    <max-dist>500.0</max-dist>
+  </horn>
+
+     <guns> 
+      <name>gunfire</name>
+      <mode>looped</mode>
+      <path>Aircraft/Thornycroft_AA/Sounds/cannon.wav</path>
+      <condition> 
+        <property>controls/armament/trigger</property>
+        <property>ai/submodels/submodel/count</property>
+      </condition>
+      <volume> 
+        <factor>1.25</factor>
+        <max>1.0</max>
+      </volume>
+    </guns>
+ 
+<tick>
+   <name>tick</name>
+   <path>Aircraft/Thornycroft_AA/Sounds/tick.wav</path>
+   <condition>
+    <or>
+	 <equals>
+      <property>/controls/lighting/right_turn</property>
+	  <value>1</value>
+	 </equals>
+	 <equals>
+      <property>/controls/lighting/left_turn</property>
+	  <value>1</value>
+	 </equals>
+	</or>
+   </condition>
+  </tick>
+
+
+</fx>
+ 
+</PropertyList>
