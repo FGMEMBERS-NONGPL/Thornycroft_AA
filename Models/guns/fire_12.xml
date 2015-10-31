@@ -3,9 +3,9 @@
 <PropertyList>
 
   <particlesystem>
-    <name>fire</name>
+    <name>fire_12</name>
     <type>normal</type>
-    <texture>smoke.png</texture>
+    <texture>fire_12.png</texture>
 
     <offsets>
       <x-m> 0 </x-m>
@@ -18,8 +18,6 @@
 
     <condition>
       <property>controls/armament/trigger</property>
-    <speed>260.0</speed>
-    <repeat>true</repeat>
     </condition>
 
     <emissive>true</emissive>
@@ -38,8 +36,8 @@
       <phi-max-deg>1.5</phi-max-deg>
       <speed-mps>
         <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-        <factor>0.257</factor>
-        <spread>15</spread>
+        <factor>-0.257</factor>
+        <spread>45</spread>
       </speed-mps>
       <rotation-speed>
         <x-min-deg-sec>  5 </x-min-deg-sec>
@@ -53,7 +51,7 @@
 
     <counter>
       <particles-per-sec>
-        <value>150</value>
+        <value>15</value>
         <spread>0</spread>
       </particles-per-sec>
     </counter>
@@ -64,20 +62,20 @@
       <start>
         <color>
           <red><value>   0.9 </value></red>
-          <green><value> 0.2 </value></green>
-          <blue><value>  0.02 </value></blue>
-          <alpha><value> 0.37 </value></alpha>
+          <green><value> 0.25 </value></green>
+          <blue><value>  0.0 </value></blue>
+          <alpha><value> 0.3 </value></alpha>
         </color>
         <size>
-          <value>0.5</value>
+          <value>0.25</value>
         </size>
       </start>
         
       <end>
         <color>
-          <red><value>   0.20 </value></red>
-          <green><value> 0.08 </value></green>
-          <blue><value>  0.018 </value></blue>
+          <red><value>   0.8 </value></red>
+          <green><value> 0.8 </value></green>
+          <blue><value>  0.8 </value></blue>
           <alpha><value> 1.0 </value></alpha>
         </color>
         <size>
@@ -86,11 +84,11 @@
       </end>
         
       <life-sec>
-        <value>0.15</value>
+        <value>2.5</value>
       </life-sec>
         
       <mass-kg>-0.15</mass-kg>
-      <radius-m>0.17</radius-m>
+      <radius-m>0.97</radius-m>
     </particle>
       
     <program>

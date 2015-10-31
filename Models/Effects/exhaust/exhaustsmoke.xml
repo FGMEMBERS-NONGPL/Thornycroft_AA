@@ -8,10 +8,7 @@
    <lighting type="bool">false</lighting>
 
      <condition>
-      <greater-than>
-        <property>engines/engine[0]/rpm</property>
-        <value>150</value>
-      </greater-than>
+        <property>engines/engine/running</property>
       </condition>
 
    <attach>world</attach>
@@ -39,12 +36,13 @@
      </rotation-speed>
    </shooter>
 
-   <counter>
-     <particles-per-sec>
-       <value>11</value>
-       <spread>4</spread>
-     </particles-per-sec>
-   </counter>
+        <counter>
+            <particles-per-sec>
+                <property>engines/engine/throttle</property>
+				<factor>25</factor>
+                <spread>1.7</spread>
+            </particles-per-sec>
+        </counter>
       
    <align>billboard</align>
 
